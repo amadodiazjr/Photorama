@@ -13,8 +13,11 @@ class PhotoStore {
             (data, response, error) -> Void in
             
             if let jsonData = data {
-                if let jsonString = String(data: jsonData, encoding: String.Encoding.utf8) {
-                    print(jsonString)
+                do {
+                    let jsonObject: Any = try JSONSerialization.jsonObject(with: jsonData, options: [])
+                    print(jsonObject)
+                } catch let error {
+                    print("Error creating JSON object: \(error)")
                 }
             } else if let requestError = error {
                 print("Error fetching recent photos: \(requestError)")
