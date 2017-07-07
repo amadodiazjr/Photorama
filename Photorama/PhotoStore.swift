@@ -1,4 +1,13 @@
-import Foundation
+import UIKit
+
+enum ImageResult {
+    case Success(UIImage)
+    case Failure(Error)
+}
+
+enum PhotoError: Error {
+    case ImageCreationError
+}
 
 class PhotoStore {
     let session: URLSession = {
@@ -25,4 +34,37 @@ class PhotoStore {
         return FlickrAPI.photosFromJSONData(data: jsonData)
     }
 
+    func fetchImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {
+        let photoURL = photo.remoteURL
+        let request = URLRequest(url: photoURL)
+        
+        let task = session.dataTask(with: request) {
+            (data, response, error) -> Void in
+            
+            let result = self.processImageRequest(data: data, error: error)
+            
+            if case let .Success(image) = result {
+                photo.image = image
+            }
+            
+            completion(result)
+        }
+        task.resume()
+    }
+    
+    func processImageRequest(data: Data?, error: Error?) -> ImageResult {
+        guard let
+            imageData = data,
+            let image = UIImage(data: imageData) else {
+                
+                // Coudn't create an image
+                if data == nil {
+                    return .Failure(error!)
+                } else {
+                    return .Failure(PhotoError.ImageCreationError)
+                }
+        }
+        
+        return .Success(image)
+    }
 }
