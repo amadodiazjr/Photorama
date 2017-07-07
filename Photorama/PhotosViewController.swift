@@ -30,6 +30,18 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPhoto" {
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+                let photo = photoDataSource.photos[selectedIndexPath.row]
+                
+                let destinationVC = segue.destination as! PhotoInfoViewController
+                destinationVC.photo = photo
+                destinationVC.store = store
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = photoDataSource.photos[indexPath.row]
         
