@@ -23,27 +23,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iFG-jV-fZK">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="AF0-ac-y7J">
-                                    <size key="itemSize" width="111" height="111"/>
+                                    <size key="itemSize" width="91" height="91"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UICollectionViewCell" id="Q60-3Z-UeD" customClass="PhotoCollectionViewCell" customModule="Photorama" customModuleProvider="target">
-                                        <rect key="frame" x="2" y="2" width="111" height="111"/>
+                                        <rect key="frame" x="2" y="2" width="91" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c3O-bn-lUk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="111" height="112"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="91" height="90"/>
                                                 </imageView>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2YN-QG-G36">
-                                                    <rect key="frame" x="45.5" y="46" width="20" height="20"/>
+                                                    <rect key="frame" x="35.5" y="35" width="20" height="20"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                         </view>
@@ -67,9 +67,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iFG-jV-fZK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="75E-ca-4fi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iFG-jV-fZK" secondAttribute="trailing" id="CHR-qb-fTq"/>
                             <constraint firstItem="iFG-jV-fZK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Guy-qh-2Aa"/>
+                            <constraint firstItem="iFG-jV-fZK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MtM-UI-AnW"/>
+                            <constraint firstItem="iFG-jV-fZK" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="U4R-7z-Tjn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iFG-jV-fZK" secondAttribute="bottom" id="qnc-5E-bTU"/>
                         </constraints>
                     </view>
