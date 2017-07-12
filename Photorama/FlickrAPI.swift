@@ -1,3 +1,4 @@
+import CoreData
 import Foundation
 
 enum Method: String {
@@ -50,7 +51,8 @@ struct FlickrAPI {
         return components.url!
     }
     
-    private static func photoFromJSONObject(json: [String: Any]) -> Photo? {
+    private static func photoFromJSONObject(json: [String: Any],
+                                            inContext context: NSManagedObjectContext) -> Photo? {
         guard
             let photoID = json["id"] as? String,
             let title = json["title"] as? String,
@@ -62,14 +64,23 @@ struct FlickrAPI {
                 return nil
         }
         
-        return Photo(title: title, photoID: photoID, remoteURL: url, dateTaken: dateTaken)
+        var photo: Photo!
+        context.performAndWait() {
+            photo = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as! Photo
+            photo.title = title
+            photo.photoID = photoID
+            photo.remoteURL = url
+            photo.dateTaken = dateTaken
+        }
+        
+        return photo
     }
 
     static func recentPhotosURL() -> URL {
         return flickrURL(method: .RecentPhotos, parameters: ["extras":"url_h,date_taken"])
     }
     
-    static func photosFromJSONData(data: Data) -> PhotosResult {
+    static func photosFromJSONData(data: Data, inContext context: NSManagedObjectContext) -> PhotosResult {
         do {
             let jsonObject: Any = try JSONSerialization.jsonObject(with: data, options: [])
 
@@ -77,20 +88,18 @@ struct FlickrAPI {
             jsonDictionary = jsonObject as? [String:Any],
                 let photos = jsonDictionary["photos"] as? [String:Any],
                 let photosArray = photos["photo"] as? [[String:Any]] else {
-                    print("what is going on")
                     // The JSON structure doesn't match  our expectations
                     return .Failure(FlickrError.InvalidJSONData)
             }
 
             var finalPhotos = [Photo]()
             for photoJSON in photosArray {
-                if let photo = photoFromJSONObject(json: photoJSON) {
+                if let photo = photoFromJSONObject(json: photoJSON, inContext: context) {
                     finalPhotos.append(photo)
                 }
             }
             
             if finalPhotos.count == 0 && photosArray.count > 0 {
-                print("what is now")
                 // We weren't able to parse any of the photos
                 // Maybe the JSON format for photos has changed
                 return .Failure(FlickrError.InvalidJSONData)

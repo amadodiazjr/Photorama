@@ -10,6 +10,8 @@ enum PhotoError: Error {
 }
 
 class PhotoStore {
+    let coreDateStack = CoreDataStack(modelName: "Photorama")
+    
     let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
@@ -31,7 +33,7 @@ class PhotoStore {
             return .Failure(error!)
         }
         
-        return FlickrAPI.photosFromJSONData(data: jsonData)
+        return FlickrAPI.photosFromJSONData(data: jsonData, inContext: self.coreDateStack.mainQueueContext)
     }
 
     func fetchImageForPhoto(photo: Photo, completion: @escaping (ImageResult) -> Void) {

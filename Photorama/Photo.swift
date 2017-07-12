@@ -1,23 +1,17 @@
 import UIKit
+import CoreData
 
-class Photo {
-    let title: String
-    let remoteURL: URL
-    let photoID: String
-    let dateTaken: Date
+
+public class Photo: NSManagedObject {
     var image: UIImage?
-    
-    init(title: String, photoID: String, remoteURL: URL, dateTaken: Date) {
-        self.title = title
-        self.photoID = photoID
-        self.remoteURL = remoteURL
-        self.dateTaken = dateTaken
+
+    override public func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        // Give the properties their initial values
+        title = ""
+        photoID = ""
+        photoKey = UUID().uuidString
+        dateTaken = Date()
     }
-}
-
-extension Photo: Equatable {}
-
-func ==(lhs: Photo, rhs: Photo) -> Bool {
-    // Two Photos are the same if they have the same PhotoID
-    return lhs.photoID == rhs.photoID
 }
