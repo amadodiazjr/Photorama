@@ -36,4 +36,22 @@ class CoreDataStack {
     required init(modelName: String) {
         managedObjectModelName = modelName
     }
+    
+    func saveChanges() throws {
+        var error: Error?
+        
+
+        mainQueueContext.performAndWait({
+            if self.mainQueueContext.hasChanges {
+                do {
+                    try self.mainQueueContext.save()
+                } catch let saveError {
+                    error = saveError
+                }
+            }
+            if let aError = error {
+                throw aError
+            }
+        } as! () -> Void)
+    }
 }
