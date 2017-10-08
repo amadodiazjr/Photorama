@@ -21,6 +21,7 @@
 		D26A26A71F101DC600A64122 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A26A61F101DC600A64122 /* PhotoCollectionViewCell.swift */; };
 		D26A26A91F102E6100A64122 /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A26A81F102E6100A64122 /* PhotoInfoViewController.swift */; };
 		D2D382301F13DFB000FA204D /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2D3822E1F13DFB000FA204D /* Photorama.xcdatamodeld */; };
+		D2F0B0081F89F0BC00AAAB94 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F0B0071F89F0BC00AAAB94 /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D26A26A61F101DC600A64122 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D26A26A81F102E6100A64122 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = "<group>"; };
 		D2D3822F1F13DFB000FA204D /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
+		D2F0B0071F89F0BC00AAAB94 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				D26012881F0D4AD80061CE79 /* Assets.xcassets */,
 				D260128A1F0D4AD80061CE79 /* LaunchScreen.storyboard */,
 				D260128D1F0D4AD80061CE79 /* Info.plist */,
+				D2F0B0071F89F0BC00AAAB94 /* ImageStore.swift */,
 				D26012931F0D4B3F0061CE79 /* PhotosViewController.swift */,
 				D26A26A41F10176600A64122 /* PhotoDataSource.swift */,
 				D26A26A81F102E6100A64122 /* PhotoInfoViewController.swift */,
@@ -175,6 +178,7 @@
 				D26A26A91F102E6100A64122 /* PhotoInfoViewController.swift in Sources */,
 				D212D1C01F13E5C4006E605D /* Photo+CoreDataProperties.swift in Sources */,
 				D26012821F0D4AD80061CE79 /* AppDelegate.swift in Sources */,
+				D2F0B0081F89F0BC00AAAB94 /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
