@@ -39,9 +39,7 @@ class CoreDataStack {
     
     func saveChanges() throws {
         var error: Error?
-        
-
-        mainQueueContext.performAndWait({
+        mainQueueContext.performAndWait{
             if self.mainQueueContext.hasChanges {
                 do {
                     try self.mainQueueContext.save()
@@ -49,9 +47,10 @@ class CoreDataStack {
                     error = saveError
                 }
             }
-            if let aError = error {
-                throw aError
-            }
-        } as! () -> Void)
+        }
+
+        if let aError = error {
+            throw aError
+        }
     }
 }
