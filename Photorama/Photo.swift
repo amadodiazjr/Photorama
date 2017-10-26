@@ -14,4 +14,14 @@ public class Photo: NSManagedObject {
         photoKey = UUID().uuidString
         dateTaken = Date()
     }
+    
+    func addTagObject(tag: NSManagedObject) {
+        let currentTags = mutableSetValue(forKey: "tags")
+        currentTags.add(tag)
+    }
+    
+    func removeTagObject(tag: NSManagedObject) {
+        let currentTags = mutableSetValue(forKey: "tags")
+        currentTags.remove(tag)
+    }
 }

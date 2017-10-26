@@ -31,13 +31,23 @@ class TagsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tag = tagDataSource.tags[indexPath.row]
+        
         if let index = selectedIndexPaths.index(of: indexPath) {
             selectedIndexPaths.remove(at: index)
+            photo.removeTagObject(tag: tag)
         } else {
             selectedIndexPaths.append(indexPath)
+            photo.addTagObject(tag: tag)
         }
        
         tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        do {
+            try store.coreDateStack.saveChanges()
+        } catch let error {
+            print("Core Data save failed: \(error)")
+        }
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
