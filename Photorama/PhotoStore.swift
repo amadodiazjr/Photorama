@@ -123,17 +123,17 @@ class PhotoStore {
         return photos
     }
     
-    func fetchMainQueueTags(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> NSPersistentStoreResult {
+    func fetchMainQueueTags(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors
         
         let mainQueueContext = self.coreDateStack.mainQueueContext
-        var mainQueueTags: NSPersistentStoreResult?
+        var mainQueueTags: [NSManagedObject]?
         var fetchRequestError: Error?
         mainQueueContext.performAndWait {
             do {
-                mainQueueTags = try mainQueueContext.execute(fetchRequest)
+                mainQueueTags = try mainQueueContext.execute(fetchRequest).accessibilityElements as? [NSManagedObject]
             } catch let error {
                 fetchRequestError = error
             }
