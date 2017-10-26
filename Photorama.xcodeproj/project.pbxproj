@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20E7E951F9668AD00996580 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E7E941F9668AD00996580 /* TagsViewController.swift */; };
+		D20E7E971F966AA600996580 /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E7E961F966AA600996580 /* TagDataSource.swift */; };
 		D212D1BF1F13E5C4006E605D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212D1BD1F13E5C4006E605D /* Photo.swift */; };
 		D212D1C01F13E5C4006E605D /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212D1BE1F13E5C4006E605D /* Photo+CoreDataProperties.swift */; };
 		D212D1C41F13E825006E605D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212D1C31F13E825006E605D /* CoreDataStack.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D20E7E941F9668AD00996580 /* TagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
+		D20E7E961F966AA600996580 /* TagDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
 		D212D1BD1F13E5C4006E605D /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		D212D1BE1F13E5C4006E605D /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D212D1C31F13E825006E605D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				D26A26A41F10176600A64122 /* PhotoDataSource.swift */,
 				D26A26A81F102E6100A64122 /* PhotoInfoViewController.swift */,
 				D212D1C31F13E825006E605D /* CoreDataStack.swift */,
+				D20E7E941F9668AD00996580 /* TagsViewController.swift */,
+				D20E7E961F966AA600996580 /* TagDataSource.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -173,10 +179,12 @@
 				D26A26A11F0DF59B00A64122 /* PhotoStore.swift in Sources */,
 				D26A26A51F10176600A64122 /* PhotoDataSource.swift in Sources */,
 				D26A26A71F101DC600A64122 /* PhotoCollectionViewCell.swift in Sources */,
+				D20E7E951F9668AD00996580 /* TagsViewController.swift in Sources */,
 				D212D1C41F13E825006E605D /* CoreDataStack.swift in Sources */,
 				D212D1BF1F13E5C4006E605D /* Photo.swift in Sources */,
 				D26A26A91F102E6100A64122 /* PhotoInfoViewController.swift in Sources */,
 				D212D1C01F13E5C4006E605D /* Photo+CoreDataProperties.swift in Sources */,
+				D20E7E971F966AA600996580 /* TagDataSource.swift in Sources */,
 				D26012821F0D4AD80061CE79 /* AppDelegate.swift in Sources */,
 				D2F0B0081F89F0BC00AAAB94 /* ImageStore.swift in Sources */,
 			);
