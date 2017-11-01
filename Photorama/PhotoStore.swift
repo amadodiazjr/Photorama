@@ -133,7 +133,7 @@ class PhotoStore {
         var fetchRequestError: Error?
         mainQueueContext.performAndWait {
             do {
-                mainQueueTags = try mainQueueContext.execute(fetchRequest).accessibilityElements as? [NSManagedObject]
+                mainQueueTags = try mainQueueContext.fetch(fetchRequest) as? [NSManagedObject]
             } catch let error {
                 fetchRequestError = error
             }

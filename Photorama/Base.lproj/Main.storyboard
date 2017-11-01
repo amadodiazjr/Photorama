@@ -85,8 +85,8 @@
         <!--Tags-->
         <scene sceneID="duz-6M-drA">
             <objects>
-                <tableViewController id="TmZ-vB-rle" customClass="TagsViewController" customModule="Photorama" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dPw-3U-XZ5" customClass="I">
+                <tableViewController id="TmZ-vB-rle" customClass="TagsViewController" customModule="Photorama" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dPw-3U-XZ5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -155,7 +155,7 @@
                         <viewControllerLayoutGuide type="top" id="h1v-Ej-2Le"/>
                         <viewControllerLayoutGuide type="bottom" id="3d7-ec-qIx"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s7i-rD-veF" customClass="PhotoInfo">
+                    <view key="view" contentMode="scaleToFill" id="s7i-rD-veF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -168,7 +168,7 @@
                                 <items>
                                     <barButtonItem title="Tags" id="Je9-lF-1eF">
                                         <connections>
-                                            <segue destination="iwO-AS-kdG" kind="presentation" id="Hcl-KO-75Y"/>
+                                            <segue destination="iwO-AS-kdG" kind="presentation" identifier="ShowTags" id="Hcl-KO-75Y"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
