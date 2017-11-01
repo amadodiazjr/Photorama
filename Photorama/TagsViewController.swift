@@ -9,6 +9,48 @@ class TagsViewController: UITableViewController {
     
     let tagDataSource = TagDataSource()
     
+    
+    @IBAction func done(sender: AnyObject) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addNewTag(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Add Tag", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "tag name"
+            textField.autocapitalizationType = .words
+        })
+        
+        let okAction = UIAlertAction(title: "OK",
+            style: .default,
+            handler: { (action) -> Void in
+                if let tagName = alertController.textFields?.first!.text {
+                    let context = self.store.coreDateStack.mainQueueContext
+                    let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: context)
+                    newTag.setValue(tagName, forKey: "name")
+                    
+                    do {
+                        try self.store.coreDateStack.saveChanges()
+                    } catch let error {
+                        print("Core Data save failed: \(error)")
+                    }
+                    self.updateTags()
+                    self.tableView.reloadSections(IndexSet(integer:0), with: .automatic)
+                }
+            }
+        )
+        
+        alertController.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,4 +99,5 @@ class TagsViewController: UITableViewController {
             cell.accessoryType = .none
         }
     }
+    
 }
